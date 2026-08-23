@@ -10,7 +10,7 @@ public class CleanExtract {
             //System.out.println(first);
 
             if (first != -1 && last != -1) {
-                if (first == last) {last = part.length()-1;}
+                if (first == last) {last = part.length();}
                 text = part.substring(first + 1, last).trim();
                 
             } else {
