@@ -8,6 +8,11 @@ public class Capitalize {
         byte[] buffer = new byte[1024];
         int index;
         while ((index = file1.read(buffer)) != -1) {
+            for (int i = 0; i < index; i++) {
+                if (buffer[i] >= 'a' && buffer[i] <= 'z') {
+                    buffer[i] = (byte)(buffer[i] - 32);
+                }
+            }
             file2.write(buffer, 0 , index);
         }
 
