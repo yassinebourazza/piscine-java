@@ -8,11 +8,11 @@ public class Capitalize {
         byte[] buffer = new byte[1024];
         int index;
         boolean newWord = true;
-        
+
         while ((index = file1.read(buffer)) != -1) {
 
             for (int i = 0; i < index; i++) {
-                if (buffer[i] == ' ') {
+                if (buffer[i] == ' ' || buffer[i] == '\n' || buffer[i] == '\t') {
                     newWord = true;
                 } else if (newWord) {
                     if (buffer[i] >= 'a' && buffer[i] <= 'z') {
