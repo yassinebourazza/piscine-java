@@ -7,8 +7,9 @@ public class Capitalize {
 
         byte[] buffer = new byte[1024];
         int index;
+        boolean newWord = true;
+        
         while ((index = file1.read(buffer)) != -1) {
-            boolean newWord = true;
 
             for (int i = 0; i < index; i++) {
                 if (buffer[i] == ' ') {
