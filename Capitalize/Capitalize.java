@@ -7,7 +7,7 @@ public class Capitalize {
 
         byte[] buffer = new byte[1024];
         int index;
-        while ((index = file1.read(buffer)) != 1) {
+        while ((index = file1.read(buffer)) != -1) {
             file2.write(buffer, 0 , index);
         }
 
