@@ -5,26 +5,27 @@ public class Capitalize {
         BufferedReader file1 = new BufferedReader(new FileReader(args[0]));
         BufferedWriter file2 = new BufferedWriter(new FileWriter(args[1]));
         
-        String line;
-        int last= 0;
+        //String line;
+        //int last= 0;
 
-        while ((line = file1.readLine()) != null) {
-            String[] words = line.trim().split("\\s+");
+        int c;
+        boolean newWord = true;
+        boolean started = false;
 
-            for (int i = 0; i < words.length; i++) {
-                String word = words[i];
-                if (!word.isEmpty()) {
-                    word = Character.toUpperCase(word.charAt(0)) + word.substring(1);
-                    file2.write(word);
-
-                    if (i < words.length - 1) {
-                        file2.write(" ");
-                    }
+        while ((c = file1.read()) != -1) {
+            if (c == ' ') {
+                if (started) {file2.write(c);}
+                
+                newWord = true;
+                started = false;
+            } else {
+                if (newWord) {
+                    c = Character.toUpperCase((char) c);
+                    newWord = false;
+                    started = true;
                 }
-            }
-            last++;
-            if (last != words.length -1) {
-                file2.newLine();
+
+                file2.write(c);
             }
         }
 
