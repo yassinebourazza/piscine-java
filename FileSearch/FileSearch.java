@@ -11,7 +11,7 @@ public class FileSearch {
         File[] files = folder.listFiles();
 
         if (files == null) {
-            return "";
+            return null;
         }
 
         for (File file : files) {
@@ -29,6 +29,6 @@ public class FileSearch {
             }
         }
 
-        return "";
+        return null;
     }
 }
