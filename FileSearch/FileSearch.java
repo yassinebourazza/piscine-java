@@ -11,7 +11,7 @@ public class FileSearch {
         File[] files = folder.listFiles();
 
         if (files == null) {
-            return null;
+            return "";
         }
 
         for (File file : files) {
