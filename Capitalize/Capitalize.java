@@ -2,29 +2,34 @@ import java.io.*;
 
 public class Capitalize {
     public static void capitalize(String[] args) throws IOException {
-        FileInputStream file1 = new FileInputStream(args[0]);
-        FileOutputStream file2 = new FileOutputStream(args[1]);
+        BufferedReader file1 = new BufferedReader(new FileReader(args[0]));
+        BufferedWriter file2 = new BufferedWriter(new FileWriter(args[1]));
+        
+        String line;
+        int last= 0;
 
-        byte[] buffer = new byte[1024];
-        int index;
-        boolean newWord = true;
+        while ((line = file1.readLine()) != null) {
+            String[] words = line.trim().split("\\s+");
 
-        while ((index = file1.read(buffer)) != -1) {
+            for (int i = 0; i < words.length; i++) {
+                String word = words[i];
+                if (!word.isEmpty()) {
+                    word = Character.toUpperCase(word.charAt(0)) + word.substring(1);
+                    file2.write(word);
 
-            for (int i = 0; i < index; i++) {
-                if (buffer[i] == ' ' || buffer[i] == '\n' || buffer[i] == '\t') {
-                    newWord = true;
-                } else if (newWord) {
-                    if (buffer[i] >= 'a' && buffer[i] <= 'z') {
-                        buffer[i] = (byte) (buffer[i] - 32);
+                    if (i < words.length - 1) {
+                        file2.write(" ");
                     }
-                    newWord = false;
                 }
             }
-            file2.write(buffer, 0 , index);
+            last++;
+            if (last != words.length -1) {
+                file2.newLine();
+            }
         }
 
         file1.close();
         file2.close();
+        
     }
 }
