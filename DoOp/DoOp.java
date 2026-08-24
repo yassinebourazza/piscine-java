@@ -11,13 +11,14 @@ public class DoOp {
         else if (args[1].equals("*")) {res = String.valueOf(num1 * num2);}
         else if (args[1].equals("/")) {
             if (num2 == 0) {return "Error";}
-            
             res = String.valueOf(num1 / num2);
         }
         else if (args[1].equals("%")) {
             if (num1 ==0 && num2 == 0) {return "0";}
             if (num2 == 0) {return "Error";}
             else {res = String.valueOf(num1 % num2);};
+        } else {
+            return "Error";
         }
         return res;
     }
