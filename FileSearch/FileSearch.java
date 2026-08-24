@@ -4,15 +4,15 @@ public class FileSearch {
 
     public static String searchFile(String fileName) {
         File documents = new File("documents");
-        return s(documents, fileName);
+        String res = s(documents, fileName);
+        if (res.equals("")) {return null;}
+        return res;
     }
 
     public static String s(File folder, String fileName) {
         File[] files = folder.listFiles();
 
-        if (files == null) {
-            return "";
-        }
+        if (files == null) {return "";}
 
         for (File file : files) {
 
@@ -23,12 +23,10 @@ public class FileSearch {
             if (file.isDirectory()) {
                 String result = s(file, fileName);
 
-                if (!result.equals("")) {
-                    return result;
-                }
+                if (!result.equals("")) {return result;}
             }
         }
 
-        return null;
+        return "";
     }
 }
