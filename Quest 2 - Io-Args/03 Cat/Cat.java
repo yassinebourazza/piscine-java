@@ -9,7 +9,6 @@ public class Cat {
         int reader;
         while ((reader = file.read(buffer)) != -1) {
             System.out.write(buffer, 0 , reader);
-            System.out.println(java.util.Arrays.toString(buffer));
             
         }
 
