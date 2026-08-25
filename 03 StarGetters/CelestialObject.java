@@ -19,6 +19,8 @@ public class CelestialObject {
         this.z = z;
     }
 
+
+
     public double getX() {return this.x;}
     public void setX(double x) {this.x = x;}
 
@@ -30,5 +32,6 @@ public class CelestialObject {
 
     public String getName() {return this.name;}
     public void setName(String name) {this.name = name;}
+
 
 }
