@@ -12,11 +12,11 @@ public class CelestialObject {
         this.name = "Soleil";
     }
 
-    public CelestialObject(double x, double y, double z, String name) {
+    public CelestialObject(String name, double x, double y, double z) {
+        this.name = name;
         this.x = x;
         this.y = y;
         this.z = z;
-        this.name = name;
     }
 
     public double getX() {return this.x;}
