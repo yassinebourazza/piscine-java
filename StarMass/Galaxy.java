@@ -27,20 +27,11 @@ public class Galaxy {
 
         for (CelestialObject object : celestialObjects) {
             if (object instanceof Star) {
-                massRepartition.put(
-                    "Star",
-                    massRepartition.get("Star") + object.getMass()
-                );
+                massRepartition.put("Star",massRepartition.get("Star") + object.getMass());
             } else if (object instanceof Planet) {
-                massRepartition.put(
-                    "Planet",
-                    massRepartition.get("Planet") + object.getMass()
-                );
+                massRepartition.put("Planet",massRepartition.get("Planet") + object.getMass());
             } else {
-                massRepartition.put(
-                    "Other",
-                    massRepartition.get("Other") + object.getMass()
-                );
+                massRepartition.put("Other",massRepartition.get("Other") + object.getMass());
             }
         }
 
