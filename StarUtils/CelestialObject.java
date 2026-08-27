@@ -44,4 +44,22 @@ public class CelestialObject {
         return getDistanceBetween(a, b) * KM_IN_ONE_AU;
     }
 
+    public String toString() {
+        return String.format("%s is positioned at (%.3f, %.3f, %.3f)",
+                name, x, y, z);
+    }
+
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        CelestialObject other = (CelestialObject) object;
+        return Double.compare(x, other.x) == 0
+                && Double.compare(y, other.y) == 0
+                && Double.compare(z, other.z) == 0
+                && java.util.Objects.equals(name, other.name);
+    }
+
+    public int hashCode() {
+        return java.util.Objects.hash(name, x, y, z);
+    }
+
 }
