@@ -43,23 +43,26 @@ public class CelestialObject {
     public static double getDistanceBetweenInKm(CelestialObject a, CelestialObject b) {
         return getDistanceBetween(a, b) * KM_IN_ONE_AU;
     }
-
+    
+    @Override
     public String toString() {
         return String.format("%s is positioned at (%.3f, %.3f, %.3f)",
                 name, x, y, z);
     }
 
+    @Override
     public boolean equals(Object object) {
         if (this == object) return true;
         CelestialObject other = (CelestialObject) object;
         
         if (!(object instanceof CelestialObject)) return false;
         return Double.compare(x, other.x) == 0
-                && Double.compare(y, other.y) == 0
-                && Double.compare(z, other.z) == 0
-                && java.util.Objects.equals(name, other.name);
+        && Double.compare(y, other.y) == 0
+        && Double.compare(z, other.z) == 0
+        && java.util.Objects.equals(name, other.name);
     }
-
+    
+    @Override
     public int hashCode() {
         return java.util.Objects.hash(name, x, y, z);
     }

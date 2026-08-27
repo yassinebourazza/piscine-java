@@ -27,12 +27,14 @@ public class Star extends CelestialObject {
         if (!(obj instanceof Star)) return false;
 
         Star other = (Star) obj;
-        return Double.compare(magnitude, other.magnitude) == 0;
+
+        return super.equals(other)
+            && Double.compare(magnitude, other.magnitude) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Double.hashCode(magnitude);
+        return 31 * super.hashCode() + Double.hashCode(magnitude);
     }
 
     @Override
