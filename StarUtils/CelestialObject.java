@@ -52,6 +52,8 @@ public class CelestialObject {
     public boolean equals(Object object) {
         if (this == object) return true;
         CelestialObject other = (CelestialObject) object;
+        
+        if (!(object instanceof CelestialObject)) return false;
         return Double.compare(x, other.x) == 0
                 && Double.compare(y, other.y) == 0
                 && Double.compare(z, other.z) == 0
