@@ -31,7 +31,6 @@ public class Star extends CelestialObject {
         return super.equals(other)
             && Double.compare(magnitude, other.magnitude) == 0;
     }
-
     @Override
     public int hashCode() {
         return 31 * super.hashCode() + Double.hashCode(magnitude);
