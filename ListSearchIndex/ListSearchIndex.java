@@ -6,11 +6,14 @@ public class ListSearchIndex {
          if (list == null) {
             return null;
         }   
-        int last = 0;
+        int last = -1;
         int i = 0;
         for (int item : list) {
             if (item == value) {last = i;}
             i++;
+        }
+        if (last == -1) {
+            return null;
         }
         return last;
     }
