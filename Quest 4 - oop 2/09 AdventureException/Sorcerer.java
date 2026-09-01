@@ -49,7 +49,7 @@ public class Sorcerer extends Character implements Healer {
         return result;
     }
 
-    public void attack(Character other) throws DeadCharacterException {
+    public void attack(Character other) {
         heal(this);
         if (getWeapon() != null) {
             other.takeDamage(getWeapon().getDamage());
@@ -58,12 +58,7 @@ public class Sorcerer extends Character implements Healer {
         }
     }
     
-    public void takeDamage(int damage) throws DeadCharacterException {
-
-        if (getCurrentHealth() <= 0) {
-            throw new DeadCharacterException(this);
-        }
-
+    public void takeDamage(int damage) {
         if (getCurrentHealth() < damage) {
             setCurrentHealth(0);
         } else {
