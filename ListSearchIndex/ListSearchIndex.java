@@ -12,13 +12,10 @@ public class ListSearchIndex {
             if (item == value) {last = i;}
             i++;
         }
-        if (last == -1) {
-            return null;
-        }
-        return last;
+        return last == -1 ? null: last ;
     }
     public static Integer findFirstIndex(List<Integer> list, Integer value) {
-         if (list == null) {
+        if (list == null) {
             return null;
         }
         int i = 0;
@@ -29,6 +26,9 @@ public class ListSearchIndex {
         return null;
     }
     public static List<Integer> findAllIndexes(List<Integer> list, Integer value) {
+        if (list == null) {
+            return null;
+        }
         List<Integer> res = new ArrayList<>();
         int i = 0;
         for (int item : list) {
