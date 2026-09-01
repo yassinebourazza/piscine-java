@@ -35,9 +35,6 @@ public class ListSearchIndex {
             if (item == value) {res.add(i);}
             i++;
         }
-         if (res == null) {
-            return null;
-        }
 
         return res;
     }
