@@ -50,7 +50,12 @@ public class Sorcerer extends Character implements Healer {
     }
 
     public void attack(Character other) throws DeadCharacterException {
+        if (getCurrentHealth() <= 0) {
+            throw new DeadCharacterException(this);
+        }
+    
         heal(this);
+    
         if (getWeapon() != null) {
             other.takeDamage(getWeapon().getDamage());
         } else {
