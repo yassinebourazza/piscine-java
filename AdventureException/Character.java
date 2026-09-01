@@ -38,9 +38,9 @@ public abstract class Character {
         return String.format("%s : %s/%s", name, currentHealth, maxHealth);
     }
 
-    public abstract void takeDamage(int damage);
+    public abstract void takeDamage(int damage) throws DeadCharacterException ;
 
-    public abstract void attack(Character other);
+    public abstract void attack(Character other) throws DeadCharacterException ;
 
     public static String printStatus() {
         String result = "------------------------------------------\n";
@@ -58,18 +58,22 @@ public abstract class Character {
     }
 
     public static Character fight(Character first, Character second) {
-        while (first.getCurrentHealth() > 0 && second.getCurrentHealth() > 0) {
-            first.attack(second);
+        try {
+            while (first.getCurrentHealth() > 0 && second.getCurrentHealth() > 0) {
+                first.attack(second);
 
-            if (second.getCurrentHealth() == 0) {
-                return first;
+                if (second.getCurrentHealth() == 0) {
+                    return first;
+                }
+
+                second.attack(first);
+
+                if (first.getCurrentHealth() == 0) {
+                    return second;
+                }
             }
-
-            second.attack(first);
-
-            if (first.getCurrentHealth() == 0) {
-                return second;
-            }
+        } catch (DeadCharacterException e) {
+            System.out.println(e.getMessage());
         }
 
         return null;

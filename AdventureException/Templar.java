@@ -50,7 +50,7 @@ public class Templar extends Character implements Healer, Tank {
         return result;
     }
 
-    public void attack(Character other) {
+    public void attack(Character other) throws DeadCharacterException {
         heal(this);
         if (getWeapon() != null) {
             other.takeDamage(getWeapon().getDamage());
@@ -59,7 +59,11 @@ public class Templar extends Character implements Healer, Tank {
         }
     }
 
-    public void takeDamage(int damage) {
+    public void takeDamage(int damage) throws DeadCharacterException {
+
+    if (getCurrentHealth() <= 0) {
+        throw new DeadCharacterException(this);
+    }
         int actualDamage = damage - shield;
 
         if (actualDamage < 0) {

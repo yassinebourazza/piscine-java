@@ -28,7 +28,10 @@ public class Monster extends Character {
         return result;
     }
 
-    public void takeDamage(int damage) {
+    public void takeDamage(int damage) throws DeadCharacterException {
+        if (getCurrentHealth() <= 0) {
+            throw new DeadCharacterException(this);
+        }
         int actualDamage = (int) (damage * 0.8);
 
         if (getCurrentHealth() < actualDamage) {
@@ -38,7 +41,7 @@ public class Monster extends Character {
         }
     }
 
-    public void attack(Character other) {
+    public void attack(Character other) throws DeadCharacterException {
         if (getWeapon() != null) {
             other.takeDamage(getWeapon().getDamage());
         } else {
