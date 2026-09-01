@@ -73,7 +73,7 @@ public abstract class Character {
         return null;
     }
 
-    public void setCurrentHealth(int currentHealth) {
+    protected void setCurrentHealth(int currentHealth) {
         this.currentHealth = currentHealth;
     }
      
