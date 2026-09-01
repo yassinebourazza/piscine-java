@@ -11,6 +11,7 @@ public class DeadCharacterException extends Exception {
         String type = "";
 
         if (character instanceof Sorcerer) {
+            
             type = "sorcerer";
         } else if (character instanceof Monster) {
             type = "monster";
