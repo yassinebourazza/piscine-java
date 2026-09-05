@@ -8,7 +8,7 @@ public class Wedding {
         for (String name : first) {
             if (list.isEmpty()) break;
 
-            String partner = list.remove(new Random().nextInt(list.size()-1));
+            String partner = list.remove(new Random().nextInt(list.size()));
             result.put(name, partner);
         }
 
