@@ -23,7 +23,12 @@ public class WeddingComplex {
                     }
                 }
 
-    
+                if (current == null) {
+                    result.put(person, partner);
+                    free.remove(person);
+                    break;
+                }
+
                 if (second.get(partner).indexOf(person)
                         < second.get(partner).indexOf(current)) {
                     result.remove(current);
