@@ -8,6 +8,9 @@ import java.util.Locale;
 public class ParseDate {
 
     public static LocalDateTime parseIsoFormat(String stringDate) {
+        if (stringDate == null) {
+            return null;
+        }
         return LocalDateTime.parse(stringDate);
     }
 
