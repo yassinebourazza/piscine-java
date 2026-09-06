@@ -27,16 +27,23 @@ public class ParseDate {
     }
 
     public static LocalTime parseTimeFormat(String stringDate) {
-        if (stringDate == null){
+        if (stringDate == null) {
             return null;
         }
+    
         String normalized = stringDate
+            .replace(" hours in the morning, ", ":")
             .replace(" hours in the evening, ", ":")
             .replace(" minutes and ", ":")
-            .replace(" seconds", " PM");
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:ss a", Locale.ENGLISH);
-
+            .replace(" seconds", "");
+    
+        String period = stringDate.contains("morning") ? "AM" : "PM";
+    
+        normalized += " " + period;
+    
+        DateTimeFormatter formatter =
+            DateTimeFormatter.ofPattern("hh:mm:ss a", Locale.ENGLISH);
+    
         return LocalTime.parse(normalized, formatter);
     }
 
