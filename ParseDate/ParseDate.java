@@ -24,6 +24,9 @@ public class ParseDate {
     }
 
     public static LocalTime parseTimeFormat(String stringDate) {
+        if (stringDate == null){
+            return null;
+        }
         String normalized = stringDate
             .replace(" hours in the evening, ", ":")
             .replace(" minutes and ", ":")
