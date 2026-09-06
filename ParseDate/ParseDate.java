@@ -15,6 +15,9 @@ public class ParseDate {
     }
 
     public static LocalDate parseFullTextFormat(String stringDate) {
+        if (stringDate == null){
+            return null;
+        }
         DateTimeFormatter formatter = new DateTimeFormatterBuilder()
             .parseCaseInsensitive()
             .appendPattern("EEEE dd MMMM yyyy")
