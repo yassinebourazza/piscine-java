@@ -11,6 +11,7 @@ public class DifferenceBetweenDate {
         if (time1 == null || time2 == null) {
             return null;
         }
+
         return Duration.between(time1, time2).abs();
     }
 
@@ -18,13 +19,19 @@ public class DifferenceBetweenDate {
         if (date1 == null || date2 == null) {
             return null;
         }
-        return Period.between(date1, date2).abs();
+
+        if (date1.isAfter(date2)) {
+            return Period.between(date2, date1);
+        }
+
+        return Period.between(date1, date2);
     }
 
     public static Long numberOfHoursBetweenDateTime(LocalDateTime date1, LocalDateTime date2) {
         if (date1 == null || date2 == null) {
             return null;
         }
+
         return Math.abs(ChronoUnit.HOURS.between(date1, date2));
     }
 }
