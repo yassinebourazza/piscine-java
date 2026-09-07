@@ -4,8 +4,12 @@ public class RegexReplace {
         return s.replaceAll("(?<=\\d)(cm|€)(?=\\s|$)", "");
     }
 
-    public static String obfuscateEmail(String s) {
-        return s.replaceAll("([a-zA-Z0-9]+)([._-])([a-zA-Z0-9]+)@([a-zA-Z0-9]+)\\.([a-zA-Z0-9]+)\\.([a-zA-Z]+)","$1$2***@*******.$5.***")
-                .replaceAll("([a-zA-Z0-9]{3})([a-zA-Z0-9]+)@([a-zA-Z0-9]+)\\.([a-zA-Z]+)","$1***@*******.$4");
+    public static String obfuscateEmail(String s) { 
+        s = s.replaceAll("([a-z0-9]+)([._-])([a-z0-9]+)@", "$1$2***@");
+        s = s.replaceAll("([a-z0-9]{3})[a-z0-9]+@", "$1***@");
+        s = s.replaceAll("@([a-z0-9]+)\\.([a-z0-9]+)\\.([a-z]+)", "@*******.$2.***");
+        s = s.replaceAll("@([a-z0-9]+)\\.(com|org|net)", "@*******.$2");
+        s = s.replaceAll("@([a-z0-9]+)\\.[a-z]+", "@*******.**");
+        return s;
     }
 }
