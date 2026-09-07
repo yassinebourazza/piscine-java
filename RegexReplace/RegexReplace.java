@@ -5,7 +5,7 @@ public class RegexReplace {
     }
 
     public static String obfuscateEmail(String s) {
-        return s.replaceAll("([a-z0-9]+)([._-])([a-z0-9]+)@([a-z0-9]+)\\.([a-z0-9]+)\\.([a-z]+)","$1$2***@*******.$5.***")
-                .replaceAll("([a-z0-9]{3})([a-z0-9]+)@([a-z0-9]+)\\.([a-z]+)","$1***@*******.$4");
+        return s.replaceAll("([a-zA-Z0-9]+)([._-])([a-zA-Z0-9]+)@([a-zA-Z0-9]+)\\.([a-zA-Z0-9]+)\\.([a-zA-Z]+)","$1$2***@*******.$5.***")
+                .replaceAll("([a-zA-Z0-9]{3})([a-zA-Z0-9]+)@([a-zA-Z0-9]+)\\.([a-zA-Z]+)","$1***@*******.$4");
     }
 }
