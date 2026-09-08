@@ -6,7 +6,7 @@ public class Excalibur {
     }
 
     public static Excalibur getInstance() {
-        if (instance == null) {return new Excalibur("Sword");}
+        if (instance == null) {instance = new Excalibur("Sword");}
         return instance;
     }
 
