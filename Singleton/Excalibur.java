@@ -5,7 +5,7 @@ public class Excalibur {
         this.name = name;
     }
 
-    public static Excalibur getINSTANCE() {
+    public static Excalibur getInstance() {
         if (INSTANCE == null) {INSTANCE = new Excalibur("Sword");}
         return INSTANCE;
     }
